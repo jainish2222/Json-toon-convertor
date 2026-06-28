@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Image from "next/image";
 import { Container } from "./Container";
 import { siteConfig } from "@/config/site";
 
@@ -40,15 +40,28 @@ export function Footer() {
     >
       <Container className="flex flex-col gap-5 text-sm sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
-          <p className="text-neutral-600 dark:text-neutral-400">
-            © {new Date().getFullYear()}{" "}
+          <p className="flex items-center justify-center gap-2 text-neutral-600 dark:text-neutral-400">
+            <span>© {new Date().getFullYear()}</span>
+
+            <Image
+              src="/green-leaves-svgrepo-com.svg"
+              alt={siteConfig.name}
+              width={22}
+              height={22}
+              priority
+              className="h-5 w-5"
+            />
+
             <span className="font-semibold text-neutral-900 dark:text-neutral-100">
               {siteConfig.name}
             </span>
           </p>
 
           <p className="text-xs text-neutral-500 dark:text-neutral-500">
-            Runs entirely in your browser. No data is uploaded.
+            Runs entirely in your browser.
+          </p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-500">
+            No data is uploaded.
           </p>
         </div>
 

@@ -49,13 +49,9 @@ export function Header() {
           />
 
           <div className="leading-tight">
-            <h1 className="font-semibold text-neutral-900 dark:text-neutral-100">
+            <h1 className="font-bold text-neutral-900 dark:text-neutral-100">
               {siteConfig.name}
             </h1>
-
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">
-              JSON → TOON Converter
-            </p>
           </div>
         </Link>
 
@@ -77,7 +73,7 @@ export function Header() {
               border
               border-neutral-200
 
-              bg-white
+              bg-white/5
 
               px-4
 
