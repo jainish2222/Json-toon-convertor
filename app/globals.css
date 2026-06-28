@@ -1,26 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Make `dark:` respond to a .dark class (set by next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* Map semantic tokens into Tailwind utilities (bg-background, text-foreground, …) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-border-subtle: var(--border-subtle);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Premium emerald/pine brand scale — same in both modes */
+  --color-brand-50: #f0fdf6;
+  --color-brand-100: #dbfbe8;
+  --color-brand-200: #b8f3d1;
+  --color-brand-300: #7fe6ad;
+  --color-brand-400: #38d182;  /* fresh accent */
+  --color-brand-500: #10b169;  /* primary */
+  --color-brand-600: #058554;  /* deep */
+  --color-brand-700: #066847;
+  --color-brand-800: #064f38;
+  --color-brand-900: #053d2e;  /* pine — for dark surfaces */
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-sans: "M PLUS Code Latin", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Light theme values */
+:root {
+  --background: #ffffff;
+  --foreground: #0a0f0c;
+  --card: #ffffff;
+  --border-subtle: #e5e7eb;     /* ~neutral-200 */
+  --muted: #f5f6f5;             /* ~neutral-50 surface */
+  --muted-foreground: #5b6560;  /* ~neutral-500/600 text */
+}
+
+/* Dark theme values */
+.dark {
+  --background: #0a0f0c;
+  --foreground: #f3f5f4;
+  --card: #111714;
+  --border-subtle: #1f2a25;
+  --muted: #131a16;
+  --muted-foreground: #9aa39e;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #e5e5e5; border-radius: 9999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Firefox — thin green line */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-300) transparent;
 }
+
+/* Chrome / Safari / Edge — small, no arrow controllers */
+html::-webkit-scrollbar { width: 5px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-300);
+  border-radius: 9999px;
+}
+html::-webkit-scrollbar-button { display: none; }
