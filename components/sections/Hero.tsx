@@ -9,8 +9,8 @@ export function Hero() {
       {/* Background */}
       <div className="absolute inset-0 -z-20">
         <Image
-          src="/exploration-settlements-different-planets.jpg"
-          alt=""
+          src="/exploration-settlements-different-planets.webp"
+          alt="Exploration settlements on different planets futuristic backdrop"
           fill
           priority
           className="object-cover"

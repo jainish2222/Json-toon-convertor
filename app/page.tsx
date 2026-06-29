@@ -4,9 +4,7 @@ import { Features } from "@/components/sections/Features";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Faq } from "@/components/sections/Faq";
 import { Converter } from "@/components/converter/Converter";
-import { buildMetadata } from "@/lib/seo/buildMetadata";
-
-export const metadata = buildMetadata();
+import { WhatIsToonSection } from "@/components/sections/WhatIsToonSection";
 
 export default function HomePage() {
   return (
@@ -18,6 +16,7 @@ export default function HomePage() {
         </h2>
         <Converter />
       </Container>
+      <WhatIsToonSection />
       <Features />
       <HowItWorks />
       <Faq />
